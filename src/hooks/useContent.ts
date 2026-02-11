@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
 
+export interface PlatformData {
+  title: string;
+  steps: string[];
+  copyLabel?: string;
+  copyUrl?: string;
+  copyText?: string;
+  downloadLabel?: string;
+  downloadUrl?: string;
+}
+
 export interface GameContent {
   gameName: string;
   description: string;
@@ -8,7 +18,8 @@ export interface GameContent {
   features: { title: string; description: string; icon: string }[];
   team: { name: string; role: string }[];
   howToPlay: {
-    platforms: Record<string, { title: string; steps: string[] }>;
+    platforms: Record<string, PlatformData>;
+    vhostDownload?: string;
   };
 }
 

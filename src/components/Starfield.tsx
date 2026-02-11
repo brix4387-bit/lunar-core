@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Animated starfield canvas background
+ * Pixelated animated starfield canvas background that fills the entire site
  */
 export function Starfield() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -15,13 +15,17 @@ export function Starfield() {
 
     let animationId: number;
 
+    // Pixel size for the pixelated effect
+    const PIXEL_SIZE = 3;
+
     // Star data
     const stars: { x: number; y: number; size: number; speed: number; opacity: number; twinkleSpeed: number }[] = [];
-    const STAR_COUNT = 200;
+    const STAR_COUNT = 300;
 
     const resize = () => {
+      // Match canvas to full document height, not just viewport
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = Math.max(document.documentElement.scrollHeight, window.innerHeight);
     };
 
     const initStars = () => {
@@ -30,7 +34,7 @@ export function Starfield() {
         stars.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 0.5,
+          size: (Math.floor(Math.random() * 2) + 1) * PIXEL_SIZE,
           speed: Math.random() * 0.3 + 0.05,
           opacity: Math.random(),
           twinkleSpeed: Math.random() * 0.02 + 0.005,
@@ -40,6 +44,9 @@ export function Starfield() {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Disable image smoothing for pixelated look
+      ctx.imageSmoothingEnabled = false;
 
       stars.forEach((star) => {
         // Twinkle
@@ -55,10 +62,14 @@ export function Starfield() {
           star.x = Math.random() * canvas.width;
         }
 
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        // Draw pixelated square stars instead of circles
         ctx.fillStyle = `rgba(230, 220, 220, ${star.opacity})`;
-        ctx.fill();
+        ctx.fillRect(
+          Math.floor(star.x / PIXEL_SIZE) * PIXEL_SIZE,
+          Math.floor(star.y / PIXEL_SIZE) * PIXEL_SIZE,
+          star.size,
+          star.size
+        );
       });
 
       animationId = requestAnimationFrame(draw);
@@ -68,21 +79,28 @@ export function Starfield() {
     initStars();
     draw();
 
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       resize();
       initStars();
-    });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Observe body height changes to keep canvas covering full page
+    const observer = new ResizeObserver(resize);
+    observer.observe(document.documentElement);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
+      observer.disconnect();
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
+      className="absolute inset-0 w-full h-full pointer-events-none"
       style={{ zIndex: 0 }}
       aria-hidden="true"
     />

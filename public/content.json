@@ -58,34 +58,58 @@
       "android": {
         "title": "Android",
         "steps": [
-          "Download PowerTunnel APP from the official GitHub release.",
-          "Click the 'Copy PowerTunnel' button above to copy the host link.",
-          "Open the PowerTunnel app, tap the three-line menu icon.",
-          "Go to Host Settings and paste the copied host URL.",
-          "Change the host update period from 12 hours to 'On Start'.",
-          "Launch the game and log in to Cloudtopia!"
-        ]
+          "First, download PowerTunnel APP (click the download button below).",
+          "Then click on the \"Copy PowerTunnel\" button — it will copy the PowerTunnel host link.",
+          "Open the PowerTunnel app, click the three-line icon, and click on the host settings icon.",
+          "Paste the copied PowerTunnel host URL. Also, change the host update period from 12 hours to \"On Start\".",
+          "Now you can log in to your GTPS!"
+        ],
+        "copyLabel": "Copy PowerTunnel",
+        "copyUrl": "https://dash.gtps.cloud/android/2392",
+        "downloadLabel": "Download PowerTunnel APK",
+        "downloadUrl": "/PowerTunnel.apk"
       },
       "ios": {
         "title": "iOS",
         "steps": [
-          "Install Surge 5 from the App Store.",
-          "Click the 'Copy iOS Host' button to copy the Surge configuration.",
-          "Open Surge 5 and import the configuration.",
-          "Enable the profile and connect.",
-          "Launch the game and log in to Cloudtopia!"
-        ]
+          "Download the app called \"Surge 5\" from the App Store.",
+          "Press \"OK\".",
+          "Click on \"Default.conf\".",
+          "Click on \"IMPORT\" part — Download Profile from URL.",
+          "Paste the URL from your copy when you click the \"Copy iOS Host\" button above, then click \"OK\" and \"Done\".",
+          "Press \"SETUP\" and then agree to the policy by clicking \"OK\" and \"Allow\" for VPN Configuration.",
+          "Done! Open \"Growtopia\" and Connect!"
+        ],
+        "copyLabel": "Copy iOS Host",
+        "copyUrl": "https://dash.gtps.cloud/ios/2392"
       },
       "windows": {
         "title": "Windows",
         "steps": [
-          "Click the 'Copy Windows Host' button to copy the host text.",
-          "Open Notepad as Administrator.",
-          "Navigate to C:\\Windows\\System32\\drivers\\etc\\hosts",
-          "Paste the copied host text at the end of the file and save.",
-          "Launch the game and log in to Cloudtopia!"
-        ]
+          "Press ⊞ Win+R (Windows Key + R) to open the \"Run\" window.",
+          "Type in C:\\Windows\\System32\\drivers\\etc in the textbox.",
+          "Find the file named \"hosts\".",
+          "Right-click on the \"hosts\" file and edit it with Notepad or a text editor.",
+          "Add the host IP entries (click \"Copy Windows Host\" below).",
+          "Save the file and log on to your Growtopia!"
+        ],
+        "copyLabel": "Copy Windows Host",
+        "copyText": "5.39.13.30 growtopia1.com\n5.39.13.30 growtopia2.com\n5.39.13.30 www.growtopia1.com\n5.39.13.30 www.growtopia2.com"
+      },
+      "macos": {
+        "title": "macOS",
+        "steps": [
+          "Open Terminal.",
+          "Run: sudo nano /etc/hosts",
+          "Add the host IP entries (click \"Copy macOS Host\" below).",
+          "Press Ctrl+O to save, then Ctrl+X to exit.",
+          "Run: sudo dscacheutil -flushcache",
+          "Open Growtopia and connect!"
+        ],
+        "copyLabel": "Copy macOS Host",
+        "copyText": "5.39.13.30 growtopia1.com\n5.39.13.30 growtopia2.com\n5.39.13.30 www.growtopia1.com\n5.39.13.30 www.growtopia2.com"
       }
-    }
+    },
+    "vhostDownload": "/Cloudtopia.txt"
   }
 }
