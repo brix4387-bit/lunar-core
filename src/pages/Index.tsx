@@ -9,10 +9,6 @@ import { CommunitySection } from "@/components/CommunitySection";
 import { FeedbackSection } from "@/components/FeedbackSection";
 import { Footer } from "@/components/Footer";
 
-/**
- * Main Index page – single-page layout with smooth scroll navigation.
- * All text content is loaded dynamically from content.json.
- */
 const Index = () => {
   const { content, loading } = useContent();
 
@@ -26,21 +22,21 @@ const Index = () => {
 
   return (
     <div className="relative min-h-screen bg-background overflow-x-hidden">
-      {/* Animated starfield background */}
-      <Starfield />
-
-      {/* Navigation */}
       <NavBar content={content} />
 
-      {/* Sections */}
-      <main className="relative z-10">
-        <HeroSection content={content} />
-        <HowToPlaySection content={content} />
-        <FeaturesSection content={content} />
-        <TeamSection content={content} />
-        <CommunitySection content={content} />
-        <FeedbackSection />
-        <Footer content={content} />
+      <main className="relative">
+        {/* Pixelated starfield fills entire page */}
+        <Starfield />
+
+        <div className="relative z-10">
+          <HeroSection content={content} />
+          <HowToPlaySection content={content} />
+          <FeaturesSection content={content} />
+          <TeamSection content={content} />
+          <CommunitySection content={content} />
+          <FeedbackSection />
+          <Footer content={content} />
+        </div>
       </main>
     </div>
   );
