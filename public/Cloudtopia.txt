@@ -1,0 +1,4 @@
+5.39.13.30 growtopia1.com
+5.39.13.30 growtopia2.com
+5.39.13.30 www.growtopia1.com
+5.39.13.30 www.growtopia2.com
