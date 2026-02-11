@@ -1,0 +1,91 @@
+{
+  "gameName": "Cloudtopia",
+  "description": "Explore an infinite universe of creativity. Build, trade, and connect with players in a world that's truly yours.",
+  "playLink": "#",
+  "discordLink": "https://discord.gg/yourlink",
+  "features": [
+    {
+      "title": "Infinite Worlds",
+      "description": "Explore procedurally generated worlds with unique biomes, resources, and secrets waiting to be discovered.",
+      "icon": "globe"
+    },
+    {
+      "title": "Real-Time Trading",
+      "description": "Trade items, resources, and creations with players worldwide through our secure marketplace.",
+      "icon": "repeat"
+    },
+    {
+      "title": "Custom Building",
+      "description": "Design and build anything you can imagine with our powerful creation tools and block system.",
+      "icon": "boxes"
+    },
+    {
+      "title": "Community Events",
+      "description": "Participate in weekly events, competitions, and community challenges for exclusive rewards.",
+      "icon": "trophy"
+    },
+    {
+      "title": "Cross-Platform",
+      "description": "Play seamlessly across Android, iOS, and Windows. Your progress syncs everywhere.",
+      "icon": "smartphone"
+    },
+    {
+      "title": "Mod Support",
+      "description": "Extend your experience with community-created mods and custom content packs.",
+      "icon": "puzzle"
+    }
+  ],
+  "team": [
+    {
+      "name": "Alex Storm",
+      "role": "Owner & Lead Developer"
+    },
+    {
+      "name": "Maya Chen",
+      "role": "Game Designer"
+    },
+    {
+      "name": "Rico Vega",
+      "role": "Backend Developer"
+    },
+    {
+      "name": "Luna Park",
+      "role": "Community Manager"
+    }
+  ],
+  "howToPlay": {
+    "platforms": {
+      "android": {
+        "title": "Android",
+        "steps": [
+          "Download PowerTunnel APP from the official GitHub release.",
+          "Click the 'Copy PowerTunnel' button above to copy the host link.",
+          "Open the PowerTunnel app, tap the three-line menu icon.",
+          "Go to Host Settings and paste the copied host URL.",
+          "Change the host update period from 12 hours to 'On Start'.",
+          "Launch the game and log in to Cloudtopia!"
+        ]
+      },
+      "ios": {
+        "title": "iOS",
+        "steps": [
+          "Install Surge 5 from the App Store.",
+          "Click the 'Copy iOS Host' button to copy the Surge configuration.",
+          "Open Surge 5 and import the configuration.",
+          "Enable the profile and connect.",
+          "Launch the game and log in to Cloudtopia!"
+        ]
+      },
+      "windows": {
+        "title": "Windows",
+        "steps": [
+          "Click the 'Copy Windows Host' button to copy the host text.",
+          "Open Notepad as Administrator.",
+          "Navigate to C:\\Windows\\System32\\drivers\\etc\\hosts",
+          "Paste the copied host text at the end of the file and save.",
+          "Launch the game and log in to Cloudtopia!"
+        ]
+      }
+    }
+  }
+}
