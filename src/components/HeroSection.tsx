@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { GameContent } from "@/hooks/useContent";
-import redMoon from "@/assets/red-moon.png";
 
 interface HeroSectionProps {
   content: GameContent;
@@ -19,14 +18,6 @@ export function HeroSection({ content }: HeroSectionProps) {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient"
     >
-      {/* Red Moon */}
-      <img
-        src={redMoon}
-        alt="Glowing red moon"
-        className="absolute top-1/2 left-1/2 w-[400px] h-[400px] md:w-[550px] md:h-[550px] opacity-40 select-none animate-moon-float pointer-events-none"
-        style={{ transform: "translate(-50%, -50%)" }}
-        draggable={false}
-      />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-3xl">
