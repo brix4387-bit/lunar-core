@@ -2,7 +2,7 @@
   "gameName": "Cloudtopia",
   "description": "Explore an infinite universe of creativity. Build, trade, and connect with players in a world that's truly yours.",
   "playLink": "#",
-  "discordLink": "https://discord.gg/yourlink",
+  "discordLink": "https://discord.gg/zAbjewC32r",
   "features": [
     {
       "title": "Infinite Worlds",
@@ -37,20 +37,24 @@
   ],
   "team": [
     {
-      "name": "Alex Storm",
-      "role": "Owner & Lead Developer"
+      "name": "ExeNational",
+      "role": "Owner",
+      "discord": "@exenational"
     },
     {
-      "name": "Maya Chen",
-      "role": "Game Designer"
+      "name": "Legendary",
+      "role": "Co Owner",
+      "discord": "@distortedrift"
     },
     {
-      "name": "Rico Vega",
-      "role": "Backend Developer"
+      "name": "Stellar",
+      "role": "Developer/Game Designer",
+      "discord": "stellaroidz"
     },
     {
-      "name": "Luna Park",
-      "role": "Community Manager"
+      "name": "TBD",
+      "role": "Community Manager",
+      "discord": "???"
     }
   ],
   "howToPlay": {

@@ -16,7 +16,7 @@ export interface GameContent {
   playLink: string;
   discordLink: string;
   features: { title: string; description: string; icon: string }[];
-  team: { name: string; role: string }[];
+  team: { name: string; role: string; discord?: string }[];
   howToPlay: {
     platforms: Record<string, PlatformData>;
   };
