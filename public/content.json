@@ -109,7 +109,6 @@
         "copyLabel": "Copy macOS Host",
         "copyText": "5.39.13.30 growtopia1.com\n5.39.13.30 growtopia2.com\n5.39.13.30 www.growtopia1.com\n5.39.13.30 www.growtopia2.com"
       }
-    },
-    "vhostDownload": "/Cloudtopia.txt"
+    }
   }
 }

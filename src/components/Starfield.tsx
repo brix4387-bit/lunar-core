@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Pixelated animated starfield canvas background that fills the entire site
+ * Full-screen red-themed pixelated starfield background
  */
 export function Starfield() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -14,16 +14,12 @@ export function Starfield() {
     if (!ctx) return;
 
     let animationId: number;
-
-    // Pixel size for the pixelated effect
     const PIXEL_SIZE = 3;
 
-    // Star data
-    const stars: { x: number; y: number; size: number; speed: number; opacity: number; twinkleSpeed: number }[] = [];
+    const stars: { x: number; y: number; size: number; speed: number; opacity: number; twinkleSpeed: number; red: number }[] = [];
     const STAR_COUNT = 300;
 
     const resize = () => {
-      // Match canvas to full document height, not just viewport
       canvas.width = window.innerWidth;
       canvas.height = Math.max(document.documentElement.scrollHeight, window.innerHeight);
     };
@@ -38,32 +34,33 @@ export function Starfield() {
           speed: Math.random() * 0.3 + 0.05,
           opacity: Math.random(),
           twinkleSpeed: Math.random() * 0.02 + 0.005,
+          red: Math.random() > 0.5 ? 1 : 0,
         });
       }
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Disable image smoothing for pixelated look
       ctx.imageSmoothingEnabled = false;
 
       stars.forEach((star) => {
-        // Twinkle
         star.opacity += star.twinkleSpeed;
         if (star.opacity > 1 || star.opacity < 0.2) {
           star.twinkleSpeed *= -1;
         }
 
-        // Slow upward drift
         star.y -= star.speed;
         if (star.y < -5) {
           star.y = canvas.height + 5;
           star.x = Math.random() * canvas.width;
         }
 
-        // Draw pixelated square stars instead of circles
-        ctx.fillStyle = `rgba(230, 220, 220, ${star.opacity})`;
+        // Mix of red-tinted and neutral stars
+        const r = star.red ? 255 : 230;
+        const g = star.red ? Math.floor(80 + Math.random() * 40) : 220;
+        const b = star.red ? Math.floor(60 + Math.random() * 30) : 220;
+
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${star.opacity})`;
         ctx.fillRect(
           Math.floor(star.x / PIXEL_SIZE) * PIXEL_SIZE,
           Math.floor(star.y / PIXEL_SIZE) * PIXEL_SIZE,
@@ -85,8 +82,6 @@ export function Starfield() {
     };
 
     window.addEventListener("resize", handleResize);
-
-    // Observe body height changes to keep canvas covering full page
     const observer = new ResizeObserver(resize);
     observer.observe(document.documentElement);
 
@@ -100,7 +95,7 @@ export function Starfield() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="fixed inset-0 w-full h-full pointer-events-none"
       style={{ zIndex: 0 }}
       aria-hidden="true"
     />

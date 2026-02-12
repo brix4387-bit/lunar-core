@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, Send, CheckCircle, Trash2 } from "lucide-react";
+import { Star, Send, CheckCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 interface Feedback {
@@ -25,7 +25,6 @@ export function FeedbackSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Fetch feedbacks
   const fetchFeedbacks = async () => {
     const { data } = await supabase
       .from("feedbacks")
@@ -36,21 +35,17 @@ export function FeedbackSection() {
 
   useEffect(() => {
     fetchFeedbacks();
-
-    // Realtime subscription
     const channel = supabase
       .channel("feedbacks-realtime")
       .on("postgres_changes", { event: "*", schema: "public", table: "feedbacks" }, () => {
         fetchFeedbacks();
       })
       .subscribe();
-
     return () => {
       supabase.removeChannel(channel);
     };
   }, []);
 
-  // Auto-roll carousel
   useEffect(() => {
     if (feedbacks.length <= 1) return;
     intervalRef.current = setInterval(() => {
@@ -92,10 +87,6 @@ export function FeedbackSection() {
       setSuggestion("");
       setRating(0);
     }, 3000);
-  };
-
-  const handleDelete = async (id: string) => {
-    await supabase.from("feedbacks").delete().eq("id", id);
   };
 
   return (
@@ -227,17 +218,10 @@ export function FeedbackSection() {
                     className="absolute inset-0 flex flex-col justify-between"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center mb-3">
                         <span className="font-semibold text-foreground">
                           {feedbacks[currentIndex]?.username}
                         </span>
-                        <button
-                          onClick={() => handleDelete(feedbacks[currentIndex]?.id)}
-                          className="text-muted-foreground hover:text-destructive transition-colors duration-200"
-                          title="Delete feedback"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
                       </div>
                       <div className="flex gap-1 mb-3">
                         {[1, 2, 3, 4, 5].map((s) => (
@@ -264,7 +248,6 @@ export function FeedbackSection() {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Dots indicator */}
                 {feedbacks.length > 1 && (
                   <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-1.5 pt-4">
                     {feedbacks.slice(0, Math.min(feedbacks.length, 10)).map((_, i) => (
