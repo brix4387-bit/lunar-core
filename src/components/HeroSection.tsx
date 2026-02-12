@@ -20,16 +20,13 @@ export function HeroSection({ content }: HeroSectionProps) {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient"
     >
       {/* Red Moon */}
-      <div className="absolute top-1/2 left-1/2 animate-moon-float pointer-events-none" style={{ transform: "translate(-50%, -50%)" }}>
-        <img
-          src={redMoon}
-          alt="Glowing red moon"
-          className="w-[400px] h-[400px] md:w-[550px] md:h-[550px] opacity-40 select-none"
-          draggable={false}
-        />
-        {/* Moon glow overlay */}
-        <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl" />
-      </div>
+      <img
+        src={redMoon}
+        alt="Glowing red moon"
+        className="absolute top-1/2 left-1/2 w-[400px] h-[400px] md:w-[550px] md:h-[550px] opacity-40 select-none animate-moon-float pointer-events-none"
+        style={{ transform: "translate(-50%, -50%)" }}
+        draggable={false}
+      />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-3xl">
