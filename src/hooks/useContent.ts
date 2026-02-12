@@ -19,7 +19,6 @@ export interface GameContent {
   team: { name: string; role: string }[];
   howToPlay: {
     platforms: Record<string, PlatformData>;
-    vhostDownload?: string;
   };
 }
 

@@ -101,16 +101,6 @@ export function HowToPlaySection({ content }: HowToPlaySectionProps) {
               {activeData.downloadLabel || "Download"}
             </a>
           )}
-          {content.howToPlay.vhostDownload && (
-            <a
-              href={content.howToPlay.vhostDownload}
-              download
-              className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/80 text-foreground px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 border border-border hover:border-primary/50"
-            >
-              <Download className="w-4 h-4" />
-              Download VHost
-            </a>
-          )}
         </motion.div>
 
         {/* Steps */}
