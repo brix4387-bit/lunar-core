@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { GameContent } from "@/hooks/useContent";
-import { User } from "lucide-react";
+import { User, MessageCircle } from "lucide-react";
 
 interface TeamSectionProps {
   content: GameContent;
@@ -39,14 +39,19 @@ export function TeamSection({ content }: TeamSectionProps) {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="glass-card rounded-xl p-6 text-center hover-glow"
             >
-              {/* Avatar placeholder */}
               <div className="w-20 h-20 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center mx-auto mb-4">
                 <User className="w-8 h-8 text-primary/60" strokeWidth={1.5} />
               </div>
               <h3 className="font-display text-lg font-semibold text-foreground mb-1">
                 {member.name}
               </h3>
-              <p className="text-sm text-muted-foreground">{member.role}</p>
+              <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
+              {member.discord && (
+                <p className="text-xs text-primary/80 flex items-center justify-center gap-1">
+                  <MessageCircle className="w-3 h-3" />
+                  {member.discord}
+                </p>
+              )}
             </motion.div>
           ))}
         </div>
