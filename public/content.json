@@ -42,14 +42,19 @@
       "discord": "@exenational"
     },
     {
-      "name": "Legendary",
+      "name": "???",
       "role": "Co Owner",
-      "discord": "@distortedrift"
+      "discord": "???"
     },
     {
       "name": "Stellar",
       "role": "Developer/Game Designer",
       "discord": "stellaroidz"
+    },
+    {
+      "name": "Legendary",
+      "role": "Community Manager",
+      "discord": "@distortedrift"
     }
   ],
   "howToPlay": {
